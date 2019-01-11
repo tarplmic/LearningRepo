@@ -33,6 +33,11 @@ namespace _003_Variables
             Console.WriteLine("Hello, " + firstName + " " + lastName);
             Console.ReadLine();
 
+            Console.WriteLine("Do you like the color blue?");
+            string answer = Console.ReadLine();
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Okay, here you go.");
+            Console.ReadLine();
         }
     }
 }
