@@ -15,9 +15,15 @@ namespace _006_SimpleMathGame
                     {
                         Console.WriteLine("What is " + x + "+" + y + ":");
 
-                        int Answer = Convert.ToInt32(Console.ReadLine());
+                        int input;
+                        if (!int.TryParse(Console.ReadLine(), out input))
+                        {
+                            Console.WriteLine("Please type a whole number.");
+                            Console.ReadLine();
+                            continue;
+                        }
 
-                        if (Answer == x + y)
+                        if (input == x + y)
                         {
                             Console.BackgroundColor = ConsoleColor.Green;
                             Console.WriteLine("Correct!");
