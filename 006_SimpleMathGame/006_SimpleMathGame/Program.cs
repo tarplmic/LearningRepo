@@ -6,46 +6,44 @@ namespace _006_SimpleMathGame
     {
         private static void Main(string[] args)
         {
-
-            for (int z = 5; z < 1000;)
+            int z = 5;
+            for (int y = 1; y < 100; y++)
             {
-                for (int y = 1; y < 100;)
+                for (int x = 0; x < z;)
                 {
-                    for (int x = 0; x < z;)
+                    Console.WriteLine("What is " + x + "+" + y + ":");
+
+                    int input;
+                    bool isNum = int.TryParse(Console.ReadLine(), out input);
+
+                    if (isNum == false)
                     {
-                        Console.WriteLine("What is " + x + "+" + y + ":");
-
-                        int input;
-                        if (!int.TryParse(Console.ReadLine(), out input))
-                        {
-                            Console.WriteLine("Please type a whole number.");
-                            Console.ReadLine();
-                            continue;
-                        }
-
-                        if (input == x + y)
-                        {
-                            Console.BackgroundColor = ConsoleColor.Green;
-                            Console.WriteLine("Correct!");
-                            x = x + y;
-                            
-                        }
-                        
-                        else
-                        {
-                            Console.BackgroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Incorrect");
-                        }
-
-                        Console.ResetColor();
+                        Console.WriteLine("Please type a whole number.");
                         Console.ReadLine();
-
-                       
+                        continue;
                     }
-                    y = y + 1;
-                    z = z + 5;
+
+                    if (input == x + y)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Correct!");
+                        x = x + y;
+
+                    }
+
+                    else
+                    {
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Incorrect");
+                    }
+
+                    Console.ResetColor();
+                    Console.ReadLine();
+
+
                 }
-               
+                
+                z = z + 5;
             }
 
             /*Console.WriteLine("What is " + x + "+1: ");
