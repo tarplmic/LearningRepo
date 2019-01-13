@@ -7,23 +7,32 @@ namespace _006_SimpleMathGame
         private static void Main(string[] args)
         {
             int z = 5;
-            for (int y = 1; y < 100; y++)
+            bool keepGoing = true;
+            for (int y = 1; y < 100 && keepGoing == true; y++)
             {
                 for (int x = 0; x < z;)
                 {
                     Console.WriteLine("What is " + x + "+" + y + ":");
 
-                    int input;
-                    bool isNum = int.TryParse(Console.ReadLine(), out input);
+                    string input = Console.ReadLine();
+                    int inputAsInt;
+                    bool isNum = int.TryParse(input, out inputAsInt);
 
-                    if (isNum == false)
+                    if (input == "quit")
                     {
+                        Console.WriteLine("Okay, bye.");
+                        Console.ReadLine();
+                        keepGoing = false;
+                        break; 
+                    }
+                    if (isNum == false)
+                    {   
                         Console.WriteLine("Please type a whole number.");
                         Console.ReadLine();
                         continue;
                     }
 
-                    if (input == x + y)
+                    if (inputAsInt == x + y)
                     {
                         Console.BackgroundColor = ConsoleColor.Green;
                         Console.WriteLine("Correct!");
