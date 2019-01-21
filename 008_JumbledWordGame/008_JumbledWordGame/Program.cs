@@ -7,42 +7,107 @@ namespace _008_JumbledWordGame
         private static void Main(string[] args)
         {
             Console.WriteLine("Rearrange the letters in each line to make a word.");
+            AnswerReception("four");
+            AnswerReception("house");
+            AnswerReception("grapes");
+            AnswerReception("logical");
+            AnswerReception("computer");
+        }
 
-            bool keepGoingLogical = true;
-            while (keepGoingLogical == true)
+
+        private static void AnswerReception(string message)
+        {
+            bool keepGoing = true;
+            while (keepGoing == true)
             {
-                string logical = "logical";
-                char[] logicalCharArray = logical.ToCharArray();
+                WriteJumbledWord(message);
+                string answer = Console.ReadLine();
 
-                Console.Write(logicalCharArray[2]);
-                Console.Write(logicalCharArray[0]);
-                Console.Write(logicalCharArray[3]);
-                Console.Write(logicalCharArray[1]);
-                Console.Write(logicalCharArray[6]);
-                Console.Write(logicalCharArray[5]);
-                Console.Write(logicalCharArray[4]);
-                Console.Write(" : ");
-
-                string Answer = Console.ReadLine();
-
-                if (Answer == "logical")
+                if (answer == message)
                 {
-                    Console.BackgroundColor = ConsoleColor.Green;
-                    Console.WriteLine("Good Job");
-                    Console.ResetColor();
-                    Console.ReadLine();
-                    keepGoingLogical = false;
+                    CorrectAnswer(answer);
+                    keepGoing = false;
                 }
                 else
                 {
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Incorrect");
-                    Console.ResetColor();
+                    IncorrectAnser(answer);
                 }
             }
+        }
 
-            Console.WriteLine("Test");
+        private static string WriteJumbledWord (string message)
+        {
+            char[] messageCharArray = message.ToCharArray();
+            if (messageCharArray.Length == 4)
+            {
+                Console.Write(messageCharArray[2]);
+                Console.Write(messageCharArray[0]);
+                Console.Write(messageCharArray[3]);
+                Console.Write(messageCharArray[1]);
+                Console.Write(" : ");
+            }
+            else if (messageCharArray.Length == 5)
+            {
+                Console.Write(messageCharArray[2]);
+                Console.Write(messageCharArray[0]);
+                Console.Write(messageCharArray[3]);
+                Console.Write(messageCharArray[1]);
+                Console.Write(messageCharArray[4]);
+                Console.Write(" : ");
+            }
+            else if (messageCharArray.Length == 6)
+            {
+                Console.Write(messageCharArray[2]);
+                Console.Write(messageCharArray[0]);
+                Console.Write(messageCharArray[3]);
+                Console.Write(messageCharArray[1]);
+                Console.Write(messageCharArray[5]);
+                Console.Write(messageCharArray[4]);
+                Console.Write(" : ");
+            }
+            else if (messageCharArray.Length == 7)
+            {
+                Console.Write(messageCharArray[2]);
+                Console.Write(messageCharArray[0]);
+                Console.Write(messageCharArray[3]);
+                Console.Write(messageCharArray[1]);
+                Console.Write(messageCharArray[6]);
+                Console.Write(messageCharArray[5]);
+                Console.Write(messageCharArray[4]);
+                Console.Write(" : ");
+            }
+            else if (messageCharArray.Length == 8)
+            {
+                Console.Write(messageCharArray[2]);
+                Console.Write(messageCharArray[0]);
+                Console.Write(messageCharArray[3]);
+                Console.Write(messageCharArray[1]);
+                Console.Write(messageCharArray[7]);
+                Console.Write(messageCharArray[5]);
+                Console.Write(messageCharArray[4]);
+                Console.Write(messageCharArray[6]);
+                Console.Write(" : ");
+            }
+            return message;
+
+        }
+        
+        private static void CorrectAnswer(string answer)
+        {
+            Console.BackgroundColor = ConsoleColor.Green;
+            Console.WriteLine("Good Job");
+            Console.ResetColor();
             Console.ReadLine();
         }
+        private static void IncorrectAnser(string answer)
+        {
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.WriteLine("Incorrect");
+            Console.ResetColor();
+            Console.ReadLine();
+        }
+
+        
+
     }
 }
