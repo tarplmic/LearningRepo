@@ -73,6 +73,11 @@ namespace _011MultiMethodGame
                     Console.WriteLine("Good Job! You finished the game.");
                     Console.ReadLine();
                 }
+                else
+                {
+                    Console.WriteLine("See ya later then.");
+                    Console.ReadLine();
+                }
                 return true;
             }
 
