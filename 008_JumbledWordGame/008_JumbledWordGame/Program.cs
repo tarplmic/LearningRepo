@@ -12,6 +12,7 @@ namespace _008_JumbledWordGame
             AnswerReception("grapes");
             AnswerReception("logical");
             AnswerReception("computer");
+            AnswerReception("theatre");
         }
 
 
