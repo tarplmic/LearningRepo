@@ -12,15 +12,6 @@ namespace _011MultiMethodGame
                 showMainMenu = MainMenu();
             }
         }
-        
-        private static void RestartFromChoice3()
-        {
-            bool showMainMenu = true;
-            while (showMainMenu)
-            {
-                showMainMenu = MainMenu();
-            }
-        }
 
         private static bool MainMenu()
         {
@@ -48,14 +39,40 @@ namespace _011MultiMethodGame
                 Console.Clear();
                 Console.WriteLine("Rearrange the letters in each line to make a word. " +
                     "Type 'quit' when you are finished with the game.");
-                AnswerReception("four");
-                AnswerReception("house");
-                AnswerReception("grapes");
-                AnswerReception("logical");
-                AnswerReception("computer");
-                AnswerReception("theatre");
-                Console.WriteLine("Good Job! You finished the game.");
-                Console.ReadLine();
+
+                bool continueWithGame;
+                continueWithGame = AnswerReception("four");
+                if (continueWithGame)
+                {
+                    continueWithGame = AnswerReception("house");
+
+                    if (continueWithGame)
+                    {
+                        continueWithGame = AnswerReception("grapes");
+
+                        if (continueWithGame)
+                        {
+                            continueWithGame = AnswerReception("logical");
+
+                            if (continueWithGame)
+                            {
+                                continueWithGame = AnswerReception("computer");
+                                if (continueWithGame)
+                                {
+                                    continueWithGame = AnswerReception("theatre");
+                                }
+                            }
+                        }
+                    }
+                }
+
+                bool completedGame = continueWithGame;
+
+                if (completedGame)
+                {
+                    Console.WriteLine("Good Job! You finished the game.");
+                    Console.ReadLine();
+                }
                 return true;
             }
 
@@ -191,8 +208,10 @@ namespace _011MultiMethodGame
         }
 
         //from here
-        private static void AnswerReception(string message)
+        private static bool AnswerReception(string message)
         {
+            bool choseToContinue = true;
+
             bool keepGoing = true;
             while (keepGoing == true)
             {
@@ -206,14 +225,16 @@ namespace _011MultiMethodGame
                 }
                 else if (answer == "quit")
                 {
-                    RestartFromChoice3();
-
+                    choseToContinue = false;
+                    keepGoing = false;
                 }
                 else
                 {
                     IncorrectAnser(answer);
                 }
             }
+
+            return choseToContinue;
         }
 
         private static string WriteJumbledWord(string message)
