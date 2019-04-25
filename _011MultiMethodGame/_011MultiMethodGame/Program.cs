@@ -40,7 +40,7 @@ namespace _011MultiMethodGame
                 return true;
             }
 
-            else if (optionChoice == "4")
+            else if (optionChoice == "4"  || optionChoice == "quit")
             {
                 return false;
             }
